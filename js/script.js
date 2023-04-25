@@ -13,11 +13,9 @@ const global = {
     apiUrl: 'https://api.themoviedb.org/3/'
   }
 }
-// console.log(global.currentPage)
 
 // display 20 most popular movies
 async function displayPopularMovies() {
-  // destructuring the object
   const { results } = await fetchAPIData('movie/popular')
 
   results.forEach(movie => {
@@ -52,14 +50,11 @@ async function displayPopularMovies() {
 
     document.querySelector('#popular-movies').appendChild(div)
   })
-
-  // console.log(results)
 }
 
 
 // display 20 most popular TV shows
 async function displayPopularShows() {
-  // destructuring the object
   const { results } = await fetchAPIData('tv/popular')
 
   results.forEach(show => {
@@ -97,8 +92,6 @@ async function displayPopularShows() {
 
     document.querySelector('#popular-shows').appendChild(div)
   })
-
-  console.log(results)
 }
 
 // display movie details
@@ -163,8 +156,6 @@ async function displayMovieDetails() {
   `
 
   document.querySelector('#movie-details').appendChild(div)
-
-  // console.log(movie)
 }
 
 // display show details
@@ -419,7 +410,6 @@ async function fetchAPIData(endpoint) {
 
   showSpinner()
 
-// query string ? 
   const response = await fetch(`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US`)
 
   const data = await response.json()
